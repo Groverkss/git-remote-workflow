@@ -18,4 +18,4 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_KEY_DISCORD_CAS }}
       - name: SSH to remote server and run command
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_ADDR }} "date > ~/date.txt"
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_ADDR }} ${{ secrets.RUN_COMMAND }}
