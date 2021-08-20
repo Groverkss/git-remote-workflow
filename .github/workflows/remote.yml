@@ -16,8 +16,6 @@ jobs:
       - uses: webfactory/ssh-agent@v0.5.3
         with:
           ssh-private-key: ${{ secrets.SSH_KEY_DISCORD_CAS }}
-      - name: SSH to remote server
-        run: ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_ADDR }}
-
-      - name: Append output of `date` to a new file
-        run: date > ~/date.txt
+      - name: SSH to remote server and run command
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_ADDR }} "date > ~/date.txt"
